@@ -64,4 +64,17 @@ public class Figure {
             gl.glEnd();
         }
     }
+    public static void renderCircle(GL2 gl, Vector2 cent, double rad, boolean b) {
+        if(b == (1==1)) {
+            gl.glBegin(GL2.GL_TRIANGLE_FAN);
+            gl.glVertex2d(cent.x, cent.y);
+            for(int i = 0;i<2500;i++) {
+                gl.glVertex2d(cent.x + rad*Math.cos(2*Math.PI*i/2500), cent.y + rad*Math.sin(2*Math.PI*i/2500));
+            }
+            gl.glEnd();
+        } else {
+            gl.glBegin(GL2.GL_LINES);
+            gl.glEnd();
+        }
+    }
 }
