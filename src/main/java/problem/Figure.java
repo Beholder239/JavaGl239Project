@@ -73,7 +73,10 @@ public class Figure {
             }
             gl.glEnd();
         } else {
-            gl.glBegin(GL2.GL_LINES);
+            gl.glBegin(GL2.GL_LINE_STRIP);
+            for(int i = 0;i<2500;i++) {
+                gl.glVertex2d(cent.x + rad*Math.cos(2*Math.PI*i/2500), cent.y + rad*Math.sin(2*Math.PI*i/2500));
+            }
             gl.glEnd();
         }
     }
