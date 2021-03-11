@@ -134,6 +134,7 @@ public class Problem {
 //        for (Point point : points) {
 //            point.render(gl);
 //        }
-        Rect.Rectangle(gl, new Vector2(0,0), new Vector2(0,0.2),new Vector2(0.3,0.5), 1==1);
+        Rect.Rect(0,0,0,0.2,0.3,0.5);
+        Rect.render2(gl, 1==0);
     }
 }
