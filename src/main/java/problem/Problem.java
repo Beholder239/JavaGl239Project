@@ -134,7 +134,6 @@ public class Problem {
 //        for (Point point : points) {
 //            point.render(gl);
 //        }
-        Rect.Rect(0,0,0,0.2,0.3,0.5);
-        Rect.render2(gl, 1==0);
+        Rect.renderRect(gl, 1==0);
     }
 }
