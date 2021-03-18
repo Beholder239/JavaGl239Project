@@ -30,6 +30,17 @@ public class Problem {
      * список точек
      */
     private ArrayList<Point> points;
+    private Rect rect;
+
+    private Line resLine;
+    private Point resA;
+    private Point resB;
+    private double a1;
+    private double a2;
+    private double a3;
+    private double a4;
+    private double a5;
+    private double a6;
 
     /**
      * Конструктор класса задачи
@@ -43,11 +54,15 @@ public class Problem {
      *
      * @param x      координата X точки
      * @param y      координата Y точки
-     * @param setVal номер множества
      */
-    public void addPoint(double x, double y, int setVal) {
-        Point point = new Point(x, y, setVal);
+    public void addPoint(double x, double y) {
+        Point point = new Point(x, y);
         points.add(point);
+    }
+
+
+    public void setRect(double x1, double y1, double x2, double y2, double x3, double y3) {
+        //rect =
     }
 
     /**
@@ -67,6 +82,10 @@ public class Problem {
                 }
             }
         }
+
+//        resA =
+//        resB =
+//        resLine =
     }
 
     /**
@@ -81,9 +100,8 @@ public class Problem {
             while (sc.hasNextLine()) {
                 double x = sc.nextDouble();
                 double y = sc.nextDouble();
-                int setVal = sc.nextInt();
                 sc.nextLine();
-                Point point = new Point(x, y, setVal);
+                Point point = new Point(x, y);
                 points.add(point);
             }
         } catch (Exception ex) {
@@ -98,7 +116,7 @@ public class Problem {
         try {
             PrintWriter out = new PrintWriter(new FileWriter(FILE_NAME));
             for (Point point : points) {
-                out.printf("%.2f %.2f %d\n", point.x, point.y, point.setNumber);
+                out.printf("%.2f %.2f\n", point.x, point.y);
             }
             out.close();
         } catch (IOException ex) {
@@ -118,11 +136,22 @@ public class Problem {
         }
     }
 
+    public void setRandomRect(){
+        rect = Rect.getRandomRect();
+    }
+    public void setRenderRect(double a1,double a2,double a3,double a4,double a5,double a6) {
+        rect = new Rect(a1,a2,a3,a4,a5,a6);
+    }
+
     /**
      * Очистить задачу
      */
     public void clear() {
         points.clear();
+        rect = null;
+        resLine = null;
+        resA = null;
+        resB = null;
     }
 
     /**
@@ -131,9 +160,20 @@ public class Problem {
      * @param gl переменная OpenGL для рисования
      */
     public void render(GL2 gl) {
-//        for (Point point : points) {
-//            point.render(gl);
-//        }
-        Rect.renderRect(gl, 1==0);
+        for (Point point : points) {
+            point.render(gl);
+        }
+        Rect  rect.renderRect(gl);
+//        Rect.renderRect(gl, new Vector2(0,0), new Vector2(0.1,0.1), new Vector2(0,-0.3), 1==1);
+        if (rect != null)
+            rect.renderRect(gl);
+        if (resLine != null) {
+            resLine.renderLine(gl, 0);
+            resA.render(gl);
+            resB.render(gl);
+        }
+//        Line l = new Line(0,0.15,0.1,0);
+//        l.renderLine(gl, 1);
     }
+
 }
