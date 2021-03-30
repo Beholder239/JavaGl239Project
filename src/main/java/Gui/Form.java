@@ -104,10 +104,10 @@ public class Form extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 double x1 = Double.parseDouble(x1RectField.getText());
                 double y1 = Double.parseDouble(y1RectField.getText());
-                double x2 = Double.parseDouble(x1RectField.getText());
-                double y2 = Double.parseDouble(y1RectField.getText());
-                double x3 = Double.parseDouble(x1RectField.getText());
-                double y3 = Double.parseDouble(y1RectField.getText());
+                double x2 = Double.parseDouble(x2RectField.getText());
+                double y2 = Double.parseDouble(y2RectField.getText());
+                double x3 = Double.parseDouble(x3RectField.getText());
+                double y3 = Double.parseDouble(y3RectField.getText());
                 renderer.problem.setRect(x1, y1, x2, y2, x3, y3);
             }
         });

@@ -19,7 +19,7 @@ public class Problem {
     /**
      * заголовок окна
      */
-    public static final String PROBLEM_CAPTION = "Итоговый проект ученика 10-7 Иванова Ивана";
+    public static final String PROBLEM_CAPTION = "Итоговый проект ученика 10-1 Гладышева Никиты";
 
     /**
      * путь к файлу
@@ -35,12 +35,6 @@ public class Problem {
     private Line resLine;
     private Point resA;
     private Point resB;
-    private double a1;
-    private double a2;
-    private double a3;
-    private double a4;
-    private double a5;
-    private double a6;
 
     /**
      * Конструктор класса задачи
@@ -52,8 +46,8 @@ public class Problem {
     /**
      * Добавить точку
      *
-     * @param x      координата X точки
-     * @param y      координата Y точки
+     * @param x координата X точки
+     * @param y координата Y точки
      */
     public void addPoint(double x, double y) {
         Point point = new Point(x, y);
@@ -62,7 +56,7 @@ public class Problem {
 
 
     public void setRect(double x1, double y1, double x2, double y2, double x3, double y3) {
-        //rect =
+        rect = new Rect(x1, y1, x2, y2, x3, y3);
     }
 
     /**
@@ -96,6 +90,8 @@ public class Problem {
         try {
             File file = new File(FILE_NAME);
             Scanner sc = new Scanner(file);
+
+
             // пока в файле есть непрочитанные строки
             while (sc.hasNextLine()) {
                 double x = sc.nextDouble();
@@ -115,6 +111,7 @@ public class Problem {
     public void saveToFile() {
         try {
             PrintWriter out = new PrintWriter(new FileWriter(FILE_NAME));
+
             for (Point point : points) {
                 out.printf("%.2f %.2f\n", point.x, point.y);
             }
@@ -136,12 +133,10 @@ public class Problem {
         }
     }
 
-    public void setRandomRect(){
+    public void setRandomRect() {
         rect = Rect.getRandomRect();
     }
-    public void setRenderRect(double a1,double a2,double a3,double a4,double a5,double a6) {
-        rect = new Rect(a1,a2,a3,a4,a5,a6);
-    }
+
 
     /**
      * Очистить задачу
@@ -163,7 +158,6 @@ public class Problem {
         for (Point point : points) {
             point.render(gl);
         }
-        Rect  rect.renderRect(gl);
 //        Rect.renderRect(gl, new Vector2(0,0), new Vector2(0.1,0.1), new Vector2(0,-0.3), 1==1);
         if (rect != null)
             rect.renderRect(gl);
@@ -172,8 +166,8 @@ public class Problem {
             resA.render(gl);
             resB.render(gl);
         }
-//        Line l = new Line(0,0.15,0.1,0);
-//        l.renderLine(gl, 1);
+//        Rect r = Rect.getRandomRect();
+//        r.renderRect(gl);
     }
 
 }

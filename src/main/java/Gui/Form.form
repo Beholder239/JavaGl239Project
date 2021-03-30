@@ -6,7 +6,7 @@
       <xy x="20" y="20" width="1515" height="500"/>
     </constraints>
     <properties>
-      <preferredSize width="1465" height="745"/>
+      <preferredSize width="1565" height="745"/>
       <requestFocusEnabled value="true"/>
     </properties>
     <border type="none"/>
@@ -128,11 +128,11 @@
               <component id="b4edf" class="javax.swing.JButton" binding="addRectBrn">
                 <constraints>
                   <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="40" height="-1"/>
+                    <preferred-size width="10" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="Добавить точку"/>
+                  <text value="Задать прямоугольник"/>
                 </properties>
               </component>
               <component id="f8df6" class="javax.swing.JTextField" binding="x1RectField">
@@ -285,13 +285,14 @@
                   <text value="Кол-во"/>
                 </properties>
               </component>
-              <hspacer id="ce02a">
+              <component id="e46db" class="javax.swing.JButton" binding="addRandomRectBtn">
                 <constraints>
-                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="50" height="-1"/>
-                  </grid>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-              </hspacer>
+                <properties>
+                  <text value="Задать случайный прямоугольник"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="52d41" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -371,14 +372,6 @@
               </grid>
             </constraints>
           </vspacer>
-          <component id="276a5" class="javax.swing.JButton" binding="addRandomRectBtn">
-            <constraints>
-              <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Добавить случайные точки"/>
-            </properties>
-          </component>
         </children>
       </grid>
       <hspacer id="c000d">
