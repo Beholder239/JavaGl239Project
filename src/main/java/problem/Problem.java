@@ -13,8 +13,11 @@ public class Problem {
      * текст задачи
      */
     public static final String PROBLEM_TEXT = "ПОСТАНОВКА ЗАДАЧИ:\n" +
-            "Заданы два множества точек в пространстве.\n" +
-            "Требуется построить пересечения и разность этих множеств";
+            "На плоскости задано множество точек, и прямоугольник. Множество точек образует\n" +
+            "   все возможные прямые, которые могут быть построены парами точек множества.\n" +
+            "Требуется найти такую прямую (и такие две точки, через которые она проходит), что эта прямая\n" +
+            "   пересекает указанный прямоугольник, и при этом длина отрезка прямой,\n" +
+            "   находящейся внутри прямоугольника, максимальна.";
 
     /**
      * заголовок окна
@@ -68,10 +71,16 @@ public class Problem {
             for (Point p2 : points) {
                 // если точки являются разными
                 if (p != p2) {
-                    // если координаты у них совпадают
-                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
-                        p.isSolution = true;
-                        p2.isSolution = true;
+                    // если координаты у них не совпадают
+                    if (Math.abs(p.x - p2.x) >= 0.01 && Math.abs(p.y - p2.y) > 0.01) {
+                        Line l = new Line(rect.a1,rect.a2,rect.a3,rect.a4);
+                        Line l1 = new Line(rect.a5,rect.a6,rect.a5 + l.A,rect.a6 + l.B);
+                        Line l2 = new Line(rect.a5,rect.a6,rect.a5 + l1.A,rect.a6 + l1.B);
+                        Line lp1 = new Line(rect.a1,rect.a2,rect.a1 + l.A,rect.a2 + l.B);
+                        Line lp2 = new Line(rect.a3,rect.a4,rect.a3 + l.A,rect.a4 + l.B);
+                        Point o = new Point((lp1.B*l2.C-lp1.C*l2.B)/(lp1.A*l2.B-lp1.B*l2.A), (lp1.A*l2.C-lp1.C*l2.A)/(lp1.B*l2.A-lp1.A*l2.B));
+                        Point o1=new Point((lp2.B*l2.C-lp2.C*l2.B)/(lp2.A*l2.B-lp2.B*l2.A), (lp2.A*l2.C-lp2.C*l2.A)/(lp2.B*l2.A-lp2.A*l2.B));
+
                     }
                 }
             }
@@ -90,15 +99,21 @@ public class Problem {
         try {
             File file = new File(FILE_NAME);
             Scanner sc = new Scanner(file);
-
-
+            double x1 = sc.nextDouble();
+            double y1 = sc.nextDouble();
+            double x2 = sc.nextDouble();
+            double y2 = sc.nextDouble();
+            double x3 = sc.nextDouble();
+            double y3 = sc.nextDouble();
+            sc.nextLine();
+            rect = new Rect(x1,y1,x2,y2,x3,y3);
             // пока в файле есть непрочитанные строки
             while (sc.hasNextLine()) {
                 double x = sc.nextDouble();
                 double y = sc.nextDouble();
                 sc.nextLine();
-                Point point = new Point(x, y);
-                points.add(point);
+                Point p = new Point(x, y);
+                points.add(p);
             }
         } catch (Exception ex) {
             System.out.println("Ошибка чтения из файла: " + ex);
@@ -111,7 +126,7 @@ public class Problem {
     public void saveToFile() {
         try {
             PrintWriter out = new PrintWriter(new FileWriter(FILE_NAME));
-
+            out.printf("%.2f %.2f %.2f %.2f %.2f %.2f\n", rect.a1, rect.a2, rect.a3, rect.a4, rect.a5, rect.a6);
             for (Point point : points) {
                 out.printf("%.2f %.2f\n", point.x, point.y);
             }
