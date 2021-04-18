@@ -69,6 +69,8 @@ public class Problem {
         double max = 0;
         Point max_p1 = new Point(5, 5);
         Point max_p2 = new Point(5, 5);
+        Point Pi = new Point(5, 5);
+        Point Pj = new Point(5, 5);
         // перебираем пары точек
         for (Point p : points) {
             for (Point p2 : points) {
@@ -148,6 +150,10 @@ public class Problem {
                                 max_p1.y = inter1.y;
                                 max_p2.x = inter2.x;
                                 max_p2.y = inter2.y;
+                                Pi.x=p.x;
+                                Pi.y=p.y;
+                                PJ.x=p2.x;
+                                PJ.y=p2.y;
                             }
                         }
                         if ((par1 != 0) && (par3 != 0)) {
@@ -157,6 +163,10 @@ public class Problem {
                                 max_p1.y = inter1.y;
                                 max_p2.x = inter3.x;
                                 max_p2.y = inter3.y;
+                                Pi.x=p.x;
+                                Pi.y=p.y;
+                                PJ.x=p2.x;
+                                PJ.y=p2.y;
                             }
                         }
                         if ((par1 != 0) && (par4 != 0)) {
@@ -166,6 +176,10 @@ public class Problem {
                                 max_p1.y = inter1.y;
                                 max_p2.x = inter4.x;
                                 max_p2.y = inter4.y;
+                                Pi.x=p.x;
+                                Pi.y=p.y;
+                                PJ.x=p2.x;
+                                PJ.y=p2.y;
                             }
                         }
                         if ((par2 != 0) && (par3 != 0)) {
@@ -184,6 +198,10 @@ public class Problem {
                                 max_p1.y = inter2.y;
                                 max_p2.x = inter4.x;
                                 max_p2.y = inter4.y;
+                                Pi.x=p.x;
+                                Pi.y=p.y;
+                                PJ.x=p2.x;
+                                PJ.y=p2.y;
                             }
                         }
                         if ((par3 != 0) && (par4 != 0)) {
@@ -193,6 +211,10 @@ public class Problem {
                                 max_p1.y = inter4.y;
                                 max_p2.x = inter3.x;
                                 max_p2.y = inter3.y;
+                                Pi.x=p.x;
+                                Pi.y=p.y;
+                                PJ.x=p2.x;
+                                PJ.y=p2.y;
                             }
                         }
                     }
