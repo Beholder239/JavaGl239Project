@@ -294,7 +294,7 @@ public class Problem {
      */
     public void render(GL2 gl) {
         gl.glLineWidth(1);
-        gl.glColor3d(1, 1, 1);
+        gl.glColor3d(1, 0, 1);
         for (Point point : points) {
             point.render(gl);
         }
