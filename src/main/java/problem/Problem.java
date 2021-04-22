@@ -150,10 +150,6 @@ public class Problem {
                                 max_p1.y = inter1.y;
                                 max_p2.x = inter2.x;
                                 max_p2.y = inter2.y;
-                                Pi.x=p.x;
-                                Pi.y=p.y;
-                                PJ.x=p2.x;
-                                PJ.y=p2.y;
                             }
                         }
                         if ((par1 != 0) && (par3 != 0)) {
@@ -163,10 +159,6 @@ public class Problem {
                                 max_p1.y = inter1.y;
                                 max_p2.x = inter3.x;
                                 max_p2.y = inter3.y;
-                                Pi.x=p.x;
-                                Pi.y=p.y;
-                                PJ.x=p2.x;
-                                PJ.y=p2.y;
                             }
                         }
                         if ((par1 != 0) && (par4 != 0)) {
@@ -176,10 +168,6 @@ public class Problem {
                                 max_p1.y = inter1.y;
                                 max_p2.x = inter4.x;
                                 max_p2.y = inter4.y;
-                                Pi.x=p.x;
-                                Pi.y=p.y;
-                                PJ.x=p2.x;
-                                PJ.y=p2.y;
                             }
                         }
                         if ((par2 != 0) && (par3 != 0)) {
@@ -198,10 +186,6 @@ public class Problem {
                                 max_p1.y = inter2.y;
                                 max_p2.x = inter4.x;
                                 max_p2.y = inter4.y;
-                                Pi.x=p.x;
-                                Pi.y=p.y;
-                                PJ.x=p2.x;
-                                PJ.y=p2.y;
                             }
                         }
                         if ((par3 != 0) && (par4 != 0)) {
@@ -211,10 +195,6 @@ public class Problem {
                                 max_p1.y = inter4.y;
                                 max_p2.x = inter3.x;
                                 max_p2.y = inter3.y;
-                                Pi.x=p.x;
-                                Pi.y=p.y;
-                                PJ.x=p2.x;
-                                PJ.y=p2.y;
                             }
                         }
                     }
@@ -316,7 +296,6 @@ public class Problem {
      */
     public void render(GL2 gl) {
         gl.glLineWidth(1);
-        gl.glColor3d(1, 0, 1);
         for (Point point : points) {
             point.render(gl);
         }
@@ -326,11 +305,12 @@ public class Problem {
 
         if (resLine != null) {
             resLine.renderLine(gl, 1);
-            gl.glColor3d(1, 0, 0);
             resA.render(gl);
             resB.render(gl);
+            gl.glColor3d(1, 0, 0);
             gl.glLineWidth(5);
             resLine.renderSect(gl, 5);
+            gl.glColor3d(1, 1, 1);
         }
     }
 
